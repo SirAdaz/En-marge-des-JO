@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use App\Repository\UserRepository;
+use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
@@ -18,15 +19,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column]
     private ?int $id = null;
 
-
-    #[ORM\Column(type: Types::DATE_MUTABLE)]
-    private ?\DateTimeInterface $date_creation = null;
-
-    #[ORM\Column(type: Types::DATE_MUTABLE)]
-    private ?\DateTimeInterface $membre_depuis_le = null;
-
     #[ORM\Column(length: 255)]
-    #[ORM\Column(length: 180)]
     private ?string $email = null;
 
     /**
@@ -67,7 +60,8 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
     #[ORM\Column(length: 255)]
     private ?string $userAssoDescr = null;
-
+    #[ORM\Column(type: Types::DATE_MUTABLE)]
+    private ?\DateTimeInterface $dateCreation = null;
     public function getId(): ?int
     {
         return $this->id;
@@ -214,12 +208,13 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     }
     public function getDateCreation(): ?\DateTimeInterface
     {
-        return $this->date_creation;
+        return $this->dateCreation;
     }
 
-    public function setDateCreation(\DateTimeInterface $date_creation): static
+    public function setDateCreation(\DateTimeInterface $dateCreation)
     {
-        $this->date_creation = $date_creation;
+        $this->dateCreation = $dateCreation;
+    }
     public function getUserAssoAdress(): ?string
     {
         return $this->userAssoAdress;
@@ -231,14 +226,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
         return $this;
     }
-    public function getMembreDepuisLe(): ?\DateTimeInterface
-    {
-        return $this->membre_depuis_le;
-    }
-
-    public function setMembreDepuisLe(\DateTimeInterface $membre_depuis_le): static
-    {
-        $this->membre_depuis_le = $membre_depuis_le;
     public function getUserAssoSport(): ?string
     {
         return $this->userAssoSport;
