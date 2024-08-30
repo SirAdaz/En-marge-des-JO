@@ -31,6 +31,7 @@ class RegistrationController extends AbstractController
             $userAssoName = $form->get('userAssoName')->getData();
             $userAssoAdress = $form->get('userAssoAdress')->getData();
             $userAssoSport = $form->get('userAssoSport')->getData();
+            $userAssoDescr = $form->get('userAssoDescr')->getData();
 
             // encode the plain password
             $user->setPassword($userPasswordHasher->hashPassword($user, $plainPassword));
@@ -42,6 +43,7 @@ class RegistrationController extends AbstractController
             $user->setUserAssoName($userAssoName);
             $user->setUserAssoAdress($userAssoAdress);
             $user->setUserAssoSport($userAssoSport);
+            $user->setUserAssoDescr($userAssoDescr);
 
             $entityManager->persist($user);
             $entityManager->flush();

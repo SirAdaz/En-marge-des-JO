@@ -27,6 +27,7 @@ class RegistrationFormType extends AbstractType
             ->add('userAssoName')
             ->add('userAssoAdress')
             ->add('userAssoSport')
+            ->add('userAssoDescr')
             ->add('agreeTerms', CheckboxType::class, [
                 'mapped' => false,
                 'constraints' => [

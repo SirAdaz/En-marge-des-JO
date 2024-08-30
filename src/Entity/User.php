@@ -57,6 +57,9 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column(length: 255)]
     private ?string $userAssoSport = null;
 
+    #[ORM\Column(length: 255)]
+    private ?string $userAssoDescr = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -224,6 +227,18 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function setUserAssoSport(string $userAssoSport): static
     {
         $this->userAssoSport = $userAssoSport;
+
+        return $this;
+    }
+
+    public function getUserAssoDescr(): ?string
+    {
+        return $this->userAssoDescr;
+    }
+
+    public function setUserAssoDescr(string $userAssoDescr): static
+    {
+        $this->userAssoDescr = $userAssoDescr;
 
         return $this;
     }
