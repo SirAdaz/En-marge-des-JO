@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello AssoController!{% endblock %}
+
+{% block body %}
+    {% include "header/header.html.twig" %}
+    <table class="table">
+        <thead>
+            <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Tel</th>
+            <th scope="col">Adress</th>
+            <th scope="col">description</th>
+            <th scope="col">Sport</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for user in users %}
+                <tr>
+                    <th>{{user.userAssoName}}</th>
+                    <td>{{user.userAssoTel}}</td>
+                    <td>{{user.userAssoAdress}}</td>
+                    <td>{{user.userAssoDescr}}</td>
+                    <td>{{user.userAssoSport}}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% include "footer/footer.html.twig" %}
+{% endblock %}
