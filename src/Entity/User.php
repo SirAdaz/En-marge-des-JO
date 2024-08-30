@@ -61,7 +61,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column(length: 255)]
     private ?string $userAssoDescr = null;
     #[ORM\Column(type: Types::DATE_MUTABLE)]
-    private ?\DateTimeInterface $dateCreation = null;
+    private ?\DateTimeInterface $userDateCreation = null;
     public function getId(): ?int
     {
         return $this->id;
@@ -206,14 +206,14 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
         return $this;
     }
-    public function getDateCreation(): ?\DateTimeInterface
+    public function getUserDateCreation(): ?\DateTimeInterface
     {
-        return $this->dateCreation;
+        return $this->userDateCreation;
     }
 
-    public function setDateCreation(\DateTimeInterface $dateCreation)
+    public function setUserDateCreation(\DateTimeInterface $userDateCreation)
     {
-        $this->dateCreation = $dateCreation;
+        $this->userDateCreation = $userDateCreation;
     }
     public function getUserAssoAdress(): ?string
     {

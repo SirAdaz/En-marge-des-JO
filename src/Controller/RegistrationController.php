@@ -44,13 +44,14 @@ class RegistrationController extends AbstractController
             $user->setUserAssoAdress($userAssoAdress);
             $user->setUserAssoSport($userAssoSport);
             $user->setUserAssoDescr($userAssoDescr);
+            $user->setUserDateCreation(new \DateTime()); 
 
             $entityManager->persist($user);
             $entityManager->flush();
 
             // do anything else you need here, like send an email
 
-            return $this->redirectToRoute('_preview_error');
+            return $this->redirectToRoute('app_register');
         }
 
         return $this->render('registration/register.html.twig', [
