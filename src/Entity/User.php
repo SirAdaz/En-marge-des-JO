@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use App\Repository\UserRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\DBAL\Types\Types; 
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
@@ -18,7 +19,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column]
     private ?int $id = null;
 
-
     #[ORM\Column(type: Types::DATE_MUTABLE)]
     private ?\DateTimeInterface $date_creation = null;
 
@@ -26,7 +26,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     private ?\DateTimeInterface $membre_depuis_le = null;
 
     #[ORM\Column(length: 255)]
-    #[ORM\Column(length: 180)]
     private ?string $email = null;
 
     /**
@@ -72,6 +71,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     {
         return $this->id;
     }
+
     public function getEmail(): ?string
     {
         return $this->email;
@@ -83,6 +83,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
         return $this;
     }
+
     /**
      * A visual identifier that represents this user.
      *
@@ -212,6 +213,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
         return $this;
     }
+
     public function getDateCreation(): ?\DateTimeInterface
     {
         return $this->date_creation;
@@ -220,6 +222,10 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function setDateCreation(\DateTimeInterface $date_creation): static
     {
         $this->date_creation = $date_creation;
+
+        return $this;
+    }
+
     public function getUserAssoAdress(): ?string
     {
         return $this->userAssoAdress;
@@ -231,6 +237,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
         return $this;
     }
+
     public function getMembreDepuisLe(): ?\DateTimeInterface
     {
         return $this->membre_depuis_le;
@@ -239,6 +246,10 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function setMembreDepuisLe(\DateTimeInterface $membre_depuis_le): static
     {
         $this->membre_depuis_le = $membre_depuis_le;
+
+        return $this;
+    }
+
     public function getUserAssoSport(): ?string
     {
         return $this->userAssoSport;
@@ -247,8 +258,10 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function setUserAssoSport(string $userAssoSport): static
     {
         $this->userAssoSport = $userAssoSport;
+
         return $this;
     }
+
     public function getUserAssoDescr(): ?string
     {
         return $this->userAssoDescr;
@@ -257,6 +270,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function setUserAssoDescr(string $userAssoDescr): static
     {
         $this->userAssoDescr = $userAssoDescr;
+
         return $this;
     }
 }
