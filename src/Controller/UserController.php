@@ -14,14 +14,11 @@ class UserController extends AbstractController
     #[Route('/user/create', name: 'user_create')]
     public function create(EntityManagerInterface $entityManager, Request $request): Response
     {
-        
+        // Créer une nouvelle instance de User
         $user = new User();
-        $user->setUserName('Assos Arrasiens');  
         $user->setEmail('assoarrassiens@email.com');
-        $user->setDateCreation(new \DateTime()); 
-        $user->setMembreDepuisLe(new \DateTime('2022-01-01')); 
-        $user->setUserAssoSport('Tennis');  
 
+        // Persister l'utilisateur en base de données
         $entityManager->persist($user);
         $entityManager->flush();
 
