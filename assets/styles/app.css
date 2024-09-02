@@ -14,3 +14,11 @@ body{
     background-repeat: no-repeat;
     background-size: cover;
 }
+.color-btn {
+    color: #087676 !important;
+   }
+
+.color-btn2 {
+    background-color: #0D3E3E !important;
+    color: #fff;
+}
