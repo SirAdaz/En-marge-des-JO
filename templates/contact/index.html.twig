@@ -3,6 +3,7 @@
 {% block title %}Hello ContactController!{% endblock %}
 
 {% block body %}
+{% include "header/header.html.twig" %}
 {{ form_errors(contactForm) }}
 
     {{ form_start(contactForm, {'attr': {'class': 'd-flex flex-column justify-content-center align-items-center flex-grow-1 mt-5'}}) }}
