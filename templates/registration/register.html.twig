@@ -55,6 +55,9 @@
                 {{ form_widget(registrationForm.userAssoDescr, {'attr': {'class': 'form-control w-50'}}) }}
             </div>
             <div class="mb-3 d-flex justify-content-between">
+                {{ form_row(registrationForm.imageFile)}}
+            </div>
+            <div class="mb-3 d-flex justify-content-between">
                 {{ form_label(registrationForm.plainPassword, 'Password', {'label_attr': {'class': 'form-label fw-bold fs-4 ms-5'}}) }}
                 {{ form_widget(registrationForm.plainPassword, {'attr': {'class': 'form-control w-50'}}) }}
             </div>
