@@ -8,72 +8,22 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav me-auto">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="{{ path('home') }}">Accueil</a>
+                        <a class="nav-link fs-4" aria-current="page" href="{{ path('home') }}">Accueil</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Nos Asso</a>
+                        <a class="nav-link fs-4" href="{{ path('app_asso') }}">Nos Asso</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Contact</a>
+                        <a class="nav-link fs-4" href="{{ path('app_contact') }}">Contact</a>
                     </li>
                 </ul>
             </div>
-            <button style="border: none; margin: 10px; background: green; padding: 5px; border-radius: 5px; color: white;"="nav-item">
-                        <a class="nav-link" href="#">Inscription</a>
+            <button class="btn btn-lg color-btn fw-semibold fs-5 nav-item me-4">
+                        <a class="nav-link" style="color: #fff;" href="{{ path('app_register') }}">Inscription</a>
                     </button>
-            <button style="border: none; background: green; padding: 5px; border-radius: 5px; color: white;"="nav-item">
-                        <a class="nav-link" href="#">Connexion</a>
+            <button class="btn btn-lg color-btn  fw-semibold fs-5 nav-item">
+                        <a class="nav-link" style="color: #fff;" href="{{ path('app_login') }}">Connexion</a>
                     </button>
         </div>
     </nav>
 </header>
-
-<main class="container mt-4">
-    <section class="mb-5">
-        <h2>Qui sommes-nous ?</h2>
-        <p class="text-muted">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ac iaculis diam, a pulvinar dolor. Cras faucibus consectetur mauris nec elementum. Aenean ut cursus elit, quis fringilla lectus. Nam mi lorem, consectetur a sem id, maximus pellentesque erat. Etiam tellus tellus, mollis et magna in, aliquet pretium leo. Nullam vel urna rhoncus, ullamcorper quam quis, faucibus dui. Integer ac elit nulla. Aenean eleifend condimentum est, ut semper ipsum rutrum eu. Ut nec convallis sem, quis tristique ligula.
-        </p>
-        <p class="text-muted">
-            Maecenas scelerisque id nisl non lobortis. Nam ac auctor libero. Etiam rhoncus massa id nulla volutpat ultricies. Donec vitae velit metus. Sed sed tempus est. Pellentesque tristique vehicula orci a laoreet. Nam semper quam justo, quis rhoncus odio vulputate nec. Curabitur suscipit urna ut libero mollis vestibulum. Donec tincidunt mauris non tortor egestas, vitae tempor magna tincidunt. Integer elit purus, tempor sit amet mi sed, finibus lacinia erat. Proin blandit enim sed ante eleifend convallis. Maecenas vitae porta urna, eget rhoncus orci. Proin vel lorem nisl.
-        </p>
-    </section>
-
-    <section>
-        <h3>Calendrier</h3>
-        <div class="row">
-            <div class="col-md-6">
-                <ul class="list-group">
-                    <li class="list-group-item">
-                        <strong>1 septembre 2024</strong> - 10:00 - Foot avec l’asso Mbappe
-                    </li>
-                    <li class="list-group-item">
-                        <strong>1 septembre 2024</strong> - 10:00 - Foot avec l’asso Mbappe
-                    </li>
-                    <li class="list-group-item">
-                        <strong>1 septembre 2024</strong> - 10:00 - Foot avec l’asso Mbappe
-                    </li>
-                    <li class="list-group-item">
-                        <strong>1 septembre 2024</strong> - 10:00 - Foot avec l’asso Mbappe
-                    </li>
-                </ul>
-            </div>
-            <div class="col-md-6">
-                <ul class="list-group">
-                    <li class="list-group-item">
-                        <strong>1 septembre 2024</strong> - 10:00 - Foot avec l’asso Mbappe
-                    </li>
-                    <li class="list-group-item">
-                        <strong>1 septembre 2024</strong> - 10:00 - Foot avec l’asso Mbappe
-                    </li>
-                    <li class="list-group-item">
-                        <strong>1 septembre 2024</strong> - 10:00 - Foot avec l’asso Mbappe
-                    </li>
-                    <li class="list-group-item">
-                        <strong>1 septembre 2024</strong> - 10:00 - Foot avec l’asso Mbappe
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </section>
-</main>
