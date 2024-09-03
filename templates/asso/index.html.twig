@@ -9,11 +9,13 @@
                 <div class="card flex-row">
                     <img class="card-img-top" alt="..." style="width: 18rem;" src="{{asset('uploads/' ~ user.imageFileName)}}" >
                     <div class="card-body">
-                        <h5 class="card-title">{{user.userAssoName}}</h5>
-                        <p class="card-text">Adess :{{user.userAssoAdress}}</p>
-                        <p class="card-text">Sport : {{user.userAssoSport}}</p>
-                        <p class="card-text">Tel :{{user.userAssoTel}}</p>
-                        <p class="card-text">{{user.userAssoDescr}}</p>
+                        <h5 class="card-title fw-bold">{{user.userAssoName}}</h5>
+                        <div class="d-flex">
+                            <p class="card-text me-3"><strong>Adess : </strong>{{user.userAssoAdress}}</p>
+                            <p class="card-text me-3"><strong>Sport : </strong>{{user.userAssoSport}}</p>
+                            <p class="card-text me-3"><strong>Tel : </strong>{{user.userAssoTel}}</p>
+                        </div>
+                        <p class="card-text"><strong>Description : </strong> <br>{{user.userAssoDescr}}</p>
                     </div>
                 </div>
             </div>
