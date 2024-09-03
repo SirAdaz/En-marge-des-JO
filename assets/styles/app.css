@@ -9,10 +9,12 @@ body{
         #28B3B3 35%,
         #27A6A6 62%,
         #258C8C 81%,
-        #237777 100%
+        #237777 100%,
+        #1C2828 100%
     );
     background-repeat: no-repeat;
     background-size: cover;
+    background-attachment: fixed;
 }
 .color-btn {
     color: #087676 !important;
