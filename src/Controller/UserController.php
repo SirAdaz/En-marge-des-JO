@@ -16,11 +16,7 @@ class UserController extends AbstractController
     {
         // Créer une nouvelle instance de User
         $user = new User();
-        $user->setNom('Sportifs du Dim');
-        $user->setEmail('sportifsdim@email.com');
-        $user->setDateCreation(new \DateTime()); 
-        $user->setMembreDepuisLe(new \DateTime('2024-08-21')); 
-        $user->setSportPratique('Foot-ball');
+        $user->setEmail('assoarrassiens@email.com');
 
         // Persister l'utilisateur en base de données
         $entityManager->persist($user);

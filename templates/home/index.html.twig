@@ -1,0 +1,14 @@
+{# templates/home/index.html.twig #}
+
+{% extends 'base.html.twig' %}
+
+{% block title %}Accueil{% endblock %}
+
+{% block body  %}
+    {% include "header/header.html.twig" %}
+    <div class="container mt-4">
+        <h1>{{ welcomeMessage }}</h1>
+        <p>Bienvenue sur notre plateforme des associations sportives de la ville d'Arras. Inscrivez-vous pour participer aux journées de  compétition.</p>
+    </div>
+    {% include "footer/footer.html.twig" %}
+{% endblock %}
