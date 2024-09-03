@@ -1,30 +1,46 @@
+{# templates/asso/index.html.twig #}
+
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello AssoController!{% endblock %}
+{% block title %}Nos Associations{% endblock %}
 
 {% block body %}
     {% include "header/header.html.twig" %}
-    <table class="table">
-        <thead>
-            <tr>
-            <th scope="col">Name</th>
-            <th scope="col">Tel</th>
-            <th scope="col">Adress</th>
-            <th scope="col">description</th>
-            <th scope="col">Sport</th>
-            </tr>
-        </thead>
-        <tbody>
+    
+    <div class="container mt-4">
+        <h1 class="mb-4 text-center">Nos Associations</h1>
+        
+        <div class="row">
             {% for user in users %}
-                <tr>
-                    <th>{{user.userAssoName}}</th>
-                    <td>{{user.userAssoTel}}</td>
-                    <td>{{user.userAssoAdress}}</td>
-                    <td>{{user.userAssoDescr}}</td>
-                    <td>{{user.userAssoSport}}</td>
-                </tr>
+                <div class="container-fluid" style="margin-bottom: 10px">
+                    <div class="card">
+                        <div class="card-header">
+                            <h5 class="card-title">{{ user.userAssoName }}</h5>
+                        </div>
+                        <div class="card-body">
+                        <img src="/assets/thefallguy.jpeg" class="img-fluid me-3" style="width: 150px; height: auto;" alt="Image">
+                            <p>Nous sommes une asso sportive pratiquant le badminton. C'est devenu une réelle passion pour nous depuis des années.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="container-fluid" style="margin-bottom: 10px">
+                    <div class="card">
+                        <div class="card-header">
+                            <h5 class="card-title">{{ user.userAssoName }}</h5>
+                        </div>
+                        <div class="card-body">
+                         <img src="/assets/thefallguy.jpeg" class="img-fluid me-3" style="width: 150px; height: auto;" alt="Image">
+                            <p>Le cyclisme urbain constitue la branche du cyclisme dévolue au transport urbain. Il s'agit de tout ce qui est relatif aux déplacements à vélo sur de petites et moyennes distances (quelques kilomètres) en milieu quasi exclusivement urbain (dans la ville et sa proche banlieue), c'est-à-dire en partageant la voirie avec les autres modes de déplacement motorisés ou non./p>
+                        </div>
+                    </div>
+                </div>
+            {% else %}
+                <div class="col-12">
+                    <p class="text-center">Aucune association trouvée.</p>
+                </div>
             {% endfor %}
-        </tbody>
-    </table>
+        </div>
+    </div>
+
     {% include "footer/footer.html.twig" %}
 {% endblock %}
