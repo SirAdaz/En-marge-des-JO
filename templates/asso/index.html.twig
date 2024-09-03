@@ -1,9 +1,13 @@
+{# templates/asso/index.html.twig #}
+
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello AssoController!{% endblock %}
+{% block title %}Nos Associations{% endblock %}
 
 {% block body %}
     {% include "header/header.html.twig" %}
+    
+        <h1 class="mb-4 text-center">Nos Associations</h1>
         {% for user in users %}
             <div class='container mt-4'>
                 <div class="card flex-row">
