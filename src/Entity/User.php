@@ -63,6 +63,9 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     private ?string $userAssoDescr = null;
     #[ORM\Column(type: Types::DATE_MUTABLE)]
     private ?\DateTimeInterface $userDateCreation = null;
+
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $imageFileName = null;
     public function getId(): ?int
     {
         return $this->id;
@@ -245,6 +248,18 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function setUserAssoDescr(string $userAssoDescr): static
     {
         $this->userAssoDescr = $userAssoDescr;
+        return $this;
+    }
+
+    public function getImageFileName(): ?string
+    {
+        return $this->imageFileName;
+    }
+
+    public function setImageFileName(?string $imageFileName): static
+    {
+        $this->imageFileName = $imageFileName;
+
         return $this;
     }
 }

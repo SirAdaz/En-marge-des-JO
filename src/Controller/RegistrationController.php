@@ -5,7 +5,9 @@ namespace App\Controller;
 use App\Entity\User;
 use App\Form\RegistrationFormType;
 use Doctrine\ORM\EntityManagerInterface;
+use Gedmo\Sluggable\Util\Urlizer;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -22,6 +24,22 @@ class RegistrationController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            /**
+             * @var UploadedFile $uploadedFile
+             */
+            $uploadedFile =($form['imageFile']->getData());
+            if ($uploadedFile) {
+                $destination = $this->getParameter('kernel.project_dir').'/public/uploads';
+
+                $originalFilename = pathinfo($uploadedFile->getClientOriginalName(), PATHINFO_FILENAME);
+                $newFilename = Urlizer::urlize($originalFilename).'-'.uniqid().'.'.$uploadedFile->guessExtension();
+    
+                $uploadedFile->move(
+                    $destination,
+                    $newFilename
+                );
+            }
+
             /** @var string $plainPassword */
             $plainPassword = $form->get('plainPassword')->getData();
             $email = $form->get('email')->getData();
@@ -46,9 +64,12 @@ class RegistrationController extends AbstractController
             $user->setUserAssoSport($userAssoSport);
             $user->setUserAssoDescr($userAssoDescr);
             $user->setUserDateCreation(new \DateTime()); 
+            $user->setImageFileName($newFilename);
 
             $entityManager->persist($user);
             $entityManager->flush();
+
+            $this->addFlash('success','User Uptated');
 
             // do anything else you need here, like send an email
 
