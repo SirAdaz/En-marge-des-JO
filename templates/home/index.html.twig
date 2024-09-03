@@ -6,9 +6,58 @@
 
 {% block body  %}
     {% include "header/header.html.twig" %}
-    <div class="container mt-4">
-        <h1>{{ welcomeMessage }}</h1>
-        <p>Bienvenue sur notre plateforme des associations sportives de la ville d'Arras. Inscrivez-vous pour participer aux journées de  compétition.</p>
-    </div>
+    <main class="container mt-4">
+        <div>
+            <h1>{{ welcomeMessage }}</h1>
+            <p>Bienvenue sur notre plateforme des associations sportives de la ville d'Arras. Inscrivez-vous pour participer aux journées de  compétition.</p>
+        </div>
+        <section class="mb-5">
+            <h2>Qui sommes-nous ?</h2>
+            <p class="text-muted">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ac iaculis diam, a pulvinar dolor. Cras faucibus consectetur mauris nec elementum. Aenean ut cursus elit, quis fringilla lectus. Nam mi lorem, consectetur a sem id, maximus pellentesque erat. Etiam tellus tellus, mollis et magna in, aliquet pretium leo. Nullam vel urna rhoncus, ullamcorper quam quis, faucibus dui. Integer ac elit nulla. Aenean eleifend condimentum est, ut semper ipsum rutrum eu. Ut nec convallis sem, quis tristique ligula.
+            </p>
+            <p class="text-muted">
+                Maecenas scelerisque id nisl non lobortis. Nam ac auctor libero. Etiam rhoncus massa id nulla volutpat ultricies. Donec vitae velit metus. Sed sed tempus est. Pellentesque tristique vehicula orci a laoreet. Nam semper quam justo, quis rhoncus odio vulputate nec. Curabitur suscipit urna ut libero mollis vestibulum. Donec tincidunt mauris non tortor egestas, vitae tempor magna tincidunt. Integer elit purus, tempor sit amet mi sed, finibus lacinia erat. Proin blandit enim sed ante eleifend convallis. Maecenas vitae porta urna, eget rhoncus orci. Proin vel lorem nisl.
+            </p>
+        </section>
+
+        <section>
+            <h3>Calendrier</h3>
+            <div class="row">
+                <div class="col-md-6">
+                    <ul class="list-group">
+                        <li class="list-group-item">
+                            <strong>1 septembre 2024</strong> - 10:00 - Foot avec l’asso Mbappe
+                        </li>
+                        <li class="list-group-item">
+                            <strong>1 septembre 2024</strong> - 10:00 - Foot avec l’asso Mbappe
+                        </li>
+                        <li class="list-group-item">
+                            <strong>1 septembre 2024</strong> - 10:00 - Foot avec l’asso Mbappe
+                        </li>
+                        <li class="list-group-item">
+                            <strong>1 septembre 2024</strong> - 10:00 - Foot avec l’asso Mbappe
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-md-6">
+                    <ul class="list-group">
+                        <li class="list-group-item">
+                            <strong>1 septembre 2024</strong> - 10:00 - Foot avec l’asso Mbappe
+                        </li>
+                        <li class="list-group-item">
+                            <strong>1 septembre 2024</strong> - 10:00 - Foot avec l’asso Mbappe
+                        </li>
+                        <li class="list-group-item">
+                            <strong>1 septembre 2024</strong> - 10:00 - Foot avec l’asso Mbappe
+                        </li>
+                        <li class="list-group-item">
+                            <strong>1 septembre 2024</strong> - 10:00 - Foot avec l’asso Mbappe
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </main>
     {% include "footer/footer.html.twig" %}
 {% endblock %}

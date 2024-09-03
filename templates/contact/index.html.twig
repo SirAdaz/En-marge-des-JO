@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello ContactController!{% endblock %}
+
+{% block body %}
+{% include "header/header.html.twig" %}
+{{ form_errors(contactForm) }}
+
+    {{ form_start(contactForm, {'attr': {'class': 'd-flex flex-column justify-content-center align-items-center flex-grow-1 mt-5'}}) }}
+        <div class="w-50 d-flex flex-column">
+            <div class="mb-3 d-flex justify-content-between">
+                {{ form_label(contactForm.NameAsso, 'Name Asso :', {'label_attr': {'class': 'form-label fw-bold fs-4'}}) }}
+                {{ form_widget(contactForm.NameAsso, {'attr': {'class': 'form-control w-50'}}) }}
+            </div>
+            <div class="mb-3 d-flex justify-content-between">
+                {{ form_label(contactForm.Email, 'Email :', {'label_attr': {'class': 'form-label fw-bold fs-4'}}) }}
+                {{ form_widget(contactForm.Email, {'attr': {'class': 'form-control w-50'}}) }}
+            </div>
+            <div class="mb-3 d-flex justify-content-between">
+                {{ form_label(contactForm.Tel, 'Tel :', {'label_attr': {'class': 'form-label fw-bold fs-4'}}) }}
+                {{ form_widget(contactForm.Tel, {'attr': {'class': 'form-control w-50'}}) }}
+            </div>
+            <div class="mb-3 d-flex flex-column">
+                {{ form_label(contactForm.Message, 'Message :', {'label_attr': {'class': 'form-label fw-bold fs-4'}}) }}
+                {{ form_widget(contactForm.Message, {'attr': {'class': 'form-control pb-5 '}}) }}
+            </div>
+        <button type="submit" class="btn btn-lg btn-primary color-btn2 fw-semibold fs-5">Submit</button>
+    {{ form_end(contactForm) }}
+{% endblock %}
