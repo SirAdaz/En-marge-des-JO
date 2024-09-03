@@ -20,14 +20,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     private ?int $id = null;
 
 
-    #[ORM\Column(type: Types::DATE_MUTABLE)]
-    private ?\DateTimeInterface $date_creation = null;
-
-    #[ORM\Column(type: Types::DATE_MUTABLE)]
-    private ?\DateTimeInterface $membre_depuis_le = null;
-
     #[ORM\Column(length: 255)]
-    #[ORM\Column(length: 180)]
     private ?string $email = null;
 
     /**
