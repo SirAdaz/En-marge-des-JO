@@ -51,6 +51,8 @@ class RegistrationController extends AbstractController
             $userAssoAdress = $form->get('userAssoAdress')->getData();
             $userAssoSport = $form->get('userAssoSport')->getData();
             $userAssoDescr = $form->get('userAssoDescr')->getData();
+            $tresorier = $form->get('tresorier')->getData();
+            $president = $form->get('president')->getData();
 
             // encode the plain password
             $user->setPassword($userPasswordHasher->hashPassword($user, $plainPassword));
@@ -63,6 +65,8 @@ class RegistrationController extends AbstractController
             $user->setUserAssoAdress($userAssoAdress);
             $user->setUserAssoSport($userAssoSport);
             $user->setUserAssoDescr($userAssoDescr);
+            $user->setTresorier($tresorier);
+            $user->setPresident($president);
             $user->setUserDateCreation(new \DateTime()); 
             $user->setImageFileName($newFilename);
 
@@ -73,7 +77,7 @@ class RegistrationController extends AbstractController
 
             // do anything else you need here, like send an email
 
-            return $this->redirectToRoute('app_register');
+            return $this->redirectToRoute('app_login');
         }
 
         return $this->render('registration/register.html.twig', [
