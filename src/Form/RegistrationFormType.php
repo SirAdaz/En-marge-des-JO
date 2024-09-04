@@ -29,8 +29,12 @@ class RegistrationFormType extends AbstractType
             ->add('userAssoAdress')
             ->add('userAssoSport')
             ->add('userAssoDescr')
-            ->add('tresorier')
-            ->add('president')
+            ->add('userTresorier')
+            ->add('userPresident')
+            ->add('userSiteInternet')
+            ->add('userLienX')
+            ->add('userLienFb')
+            ->add('userLienInsta')
             ->add('plainPassword', PasswordType::class, [
                 // instead of being set onto the object directly,
                 // this is read and encoded in the controller

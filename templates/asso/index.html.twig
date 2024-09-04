@@ -18,8 +18,20 @@
                             <p class="card-text me-3"><strong>Adess : </strong>{{user.userAssoAdress}}</p>
                             <p class="card-text me-3"><strong>Sport : </strong>{{user.userAssoSport}}</p>
                             <p class="card-text me-3"><strong>Tel : </strong>{{user.userAssoTel}}</p>
-                            <p class="card-text me-3"><strong>Président : </strong>{{user.president}}</p>
-                            <p class="card-text me-3"><strong>Trésorier : </strong>{{user.tresorier}}</p>
+                            <p class="card-text me-3"><strong>Président : </strong>{{user.userPresident}}</p>
+                            <p class="card-text me-3"><strong>Trésorier : </strong>{{user.userTresorier}}</p>
+                            {% if user.userSiteInternet != null %}
+                                <p class="card-text me-3"><strong>Site Internet : </strong><a href="{{user.userSiteInternet}}">{{user.userSiteInternet}}</a></p>
+                            {% endif %}
+                            {% if user.userLienInsta != null %}
+                                <p class="card-text me-3"><a class="fa-brands fa-instagram" href="{{user.userLienInsta}}"></a></p>
+                            {% endif %}
+                            {% if user.userLienFb != null %}
+                                <p class="card-text me-3"><a class="fa-brands fa-facebook" href="{{user.userLienFb}}"></a></p>
+                            {% endif %}
+                            {% if user.userLienX != null %}
+                                <p class="card-text me-3"><a class="fa-solid fa-x" href="{{user.userLienX}}"></a></p>
+                            {% endif %}
                         </div>
                         <p class="card-text"><strong>Description : </strong> <br>{{user.userAssoDescr}}</p>
                     </div>
@@ -31,4 +43,5 @@
             </div>
         {% endfor %}
     {% include "footer/footer.html.twig" %}
+    <script src="https://kit.fontawesome.com/a20f40c291.js" crossorigin="anonymous"></script>
 {% endblock %}
