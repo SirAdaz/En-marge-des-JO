@@ -51,8 +51,12 @@ class RegistrationController extends AbstractController
             $userAssoAdress = $form->get('userAssoAdress')->getData();
             $userAssoSport = $form->get('userAssoSport')->getData();
             $userAssoDescr = $form->get('userAssoDescr')->getData();
-            $tresorier = $form->get('tresorier')->getData();
-            $president = $form->get('president')->getData();
+            $userTresorier = $form->get('userTresorier')->getData();
+            $userPresident = $form->get('userPresident')->getData();
+            $userSiteInternet = $form->get('userSiteInternet')->getData();
+            $userLienX = $form->get('userLienX')->getData();
+            $userLienFb = $form->get('userLienFb')->getData();
+            $userLienInsta = $form->get('userLienInsta')->getData();
 
             // encode the plain password
             $user->setPassword($userPasswordHasher->hashPassword($user, $plainPassword));
@@ -65,15 +69,19 @@ class RegistrationController extends AbstractController
             $user->setUserAssoAdress($userAssoAdress);
             $user->setUserAssoSport($userAssoSport);
             $user->setUserAssoDescr($userAssoDescr);
-            $user->setTresorier($tresorier);
-            $user->setPresident($president);
+            $user->setUserTresorier($userTresorier);
+            $user->setUserPresident($userPresident);
+            $user->setUserSiteInternet($userSiteInternet);
+            $user->setUserLienX($userLienX);
+            $user->setUserLienFb($userLienFb);
+            $user->setUserLienInsta($userLienInsta);
             $user->setUserDateCreation(new \DateTime()); 
             $user->setImageFileName($newFilename);
 
             $entityManager->persist($user);
             $entityManager->flush();
 
-            $this->addFlash('success','User Uptated');
+            $this->addFlash('success','User add');
 
             // do anything else you need here, like send an email
 

@@ -68,10 +68,22 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     private ?string $imageFileName = null;
 
     #[ORM\Column(length: 255)]
-    private ?string $tresorier = null;
+    private ?string $userTresorier = null;
 
     #[ORM\Column(length: 255)]
-    private ?string $president = null;
+    private ?string $userPresident = null;
+
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $userSiteInternet = null;
+
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $userLienX = null;
+
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $userLienFb = null;
+
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $userLienInsta = null;
     public function getId(): ?int
     {
         return $this->id;
@@ -269,26 +281,74 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return $this;
     }
 
-    public function getTresorier(): ?string
+    public function getUserTresorier(): ?string
     {
-        return $this->tresorier;
+        return $this->userTresorier;
     }
 
-    public function setTresorier(string $tresorier): static
+    public function setUserTresorier(string $userTresorier): static
     {
-        $this->tresorier = $tresorier;
+        $this->userTresorier = $userTresorier;
 
         return $this;
     }
 
-    public function getPresident(): ?string
+    public function getUserPresident(): ?string
     {
-        return $this->president;
+        return $this->userPresident;
     }
 
-    public function setPresident(string $president): static
+    public function setUserPresident(string $userPresident): static
     {
-        $this->president = $president;
+        $this->userPresident = $userPresident;
+
+        return $this;
+    }
+
+    public function getUserSiteInternet(): ?string
+    {
+        return $this->userSiteInternet;
+    }
+
+    public function setUserSiteInternet(?string $userSiteInternet): static
+    {
+        $this->userSiteInternet = $userSiteInternet;
+
+        return $this;
+    }
+
+    public function getUserLienX(): ?string
+    {
+        return $this->userLienX;
+    }
+
+    public function setUserLienX(?string $userLienX): static
+    {
+        $this->userLienX = $userLienX;
+
+        return $this;
+    }
+
+    public function getUserLienFb(): ?string
+    {
+        return $this->userLienFb;
+    }
+
+    public function setUserLienFb(?string $userLienFb): static
+    {
+        $this->userLienFb = $userLienFb;
+
+        return $this;
+    }
+
+    public function getUserLienInsta(): ?string
+    {
+        return $this->userLienInsta;
+    }
+
+    public function setUserLienInsta(?string $userLienInsta): static
+    {
+        $this->userLienInsta = $userLienInsta;
 
         return $this;
     }
