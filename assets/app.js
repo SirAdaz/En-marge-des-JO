@@ -7,4 +7,21 @@ import './bootstrap.js';
  */
 import './styles/app.css';
 
-console.log('This log comes from assets/app.js - welcome to AssetMapper! 🎉');
+
+window.onload = function () {
+    let buttons = document.getElementsByClassName("modalon");
+    for (let i = 0; i < buttons.length; i++) {
+        let btn1 = buttons[i];
+        btn1.addEventListener("click", function(e){
+            let id = e.target.getAttribute('data-id');     
+            let modalMockup = document.getElementById("modalMockup" + id);
+            console.log(modalMockup);
+            
+            if(modalMockup.style.display === "flex") {
+                modalMockup.style.display = "none";
+            } else {
+                modalMockup.style.display = "flex";
+            }
+        });
+    }
+};
