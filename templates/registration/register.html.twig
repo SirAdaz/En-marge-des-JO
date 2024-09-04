@@ -54,6 +54,14 @@
                 {{ form_label(registrationForm.userAssoDescr, 'Association Description', {'label_attr': {'class': 'form-label fw-bold fs-4 ms-5'}}) }}
                 {{ form_widget(registrationForm.userAssoDescr, {'attr': {'class': 'form-control w-50'}}) }}
             </div>
+                        <div class="mb-3 d-flex justify-content-between">
+                {{ form_label(registrationForm.tresorier, 'Trésorier', {'label_attr': {'class': 'form-label fw-bold fs-4 ms-5'}}) }}
+                {{ form_widget(registrationForm.tresorier, {'attr': {'class': 'form-control w-50'}}) }}
+            </div>
+                        <div class="mb-3 d-flex justify-content-between">
+                {{ form_label(registrationForm.president, 'Président', {'label_attr': {'class': 'form-label fw-bold fs-4 ms-5'}}) }}
+                {{ form_widget(registrationForm.president, {'attr': {'class': 'form-control w-50'}}) }}
+            </div>
             <div class="mb-3 d-flex justify-content-between">
                 {{ form_row(registrationForm.imageFile)}}
             </div>

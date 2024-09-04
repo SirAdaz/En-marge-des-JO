@@ -66,6 +66,12 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $imageFileName = null;
+
+    #[ORM\Column(length: 255)]
+    private ?string $tresorier = null;
+
+    #[ORM\Column(length: 255)]
+    private ?string $president = null;
     public function getId(): ?int
     {
         return $this->id;
@@ -259,6 +265,30 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function setImageFileName(?string $imageFileName): static
     {
         $this->imageFileName = $imageFileName;
+
+        return $this;
+    }
+
+    public function getTresorier(): ?string
+    {
+        return $this->tresorier;
+    }
+
+    public function setTresorier(string $tresorier): static
+    {
+        $this->tresorier = $tresorier;
+
+        return $this;
+    }
+
+    public function getPresident(): ?string
+    {
+        return $this->president;
+    }
+
+    public function setPresident(string $president): static
+    {
+        $this->president = $president;
 
         return $this;
     }
