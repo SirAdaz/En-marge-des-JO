@@ -7,40 +7,28 @@
 {% block body %}
     {% include "header/header.html.twig" %}
     
-    <div class="container mt-4">
         <h1 class="mb-4 text-center">Nos Associations</h1>
-        
-        <div class="row">
-            {% for user in users %}
-                <div class="container-fluid" style="margin-bottom: 10px">
-                    <div class="card">
-                        <div class="card-header">
-                            <h5 class="card-title">{{ user.userAssoName }}</h5>
+        {% for user in users %}
+            <div class='container mt-4'>
+                <div class="card flex-row">
+                    <img class="card-img-top" alt="..." style="width: 18rem;" src="{{asset('uploads/' ~ user.imageFileName)}}" >
+                    <div class="card-body">
+                        <h5 class="card-title fw-bold">{{user.userAssoName}}</h5>
+                        <div class="d-flex">
+                            <p class="card-text me-3"><strong>Adess : </strong>{{user.userAssoAdress}}</p>
+                            <p class="card-text me-3"><strong>Sport : </strong>{{user.userAssoSport}}</p>
+                            <p class="card-text me-3"><strong>Tel : </strong>{{user.userAssoTel}}</p>
+                            <p class="card-text me-3"><strong>Président : </strong>{{user.president}}</p>
+                            <p class="card-text me-3"><strong>Trésorier : </strong>{{user.tresorier}}</p>
                         </div>
-                        <div class="card-body">
-                        <img src="/images/AssoArrasiens.jfif" class="img-fluid me-3" style="width: 150px; height: auto;" alt="Image">
-                            <p>Nous sommes une association sportive dédiée à la pratique du badminton, un sport qui nous anime et nous passionne depuis de nombreuses années. Au fil du temps, cette activité est devenue bien plus qu'un simple loisir, elle est désormais au cœur de notre communauté, favorisant l'esprit d'équipe et le dépassement de soi. Nous organisons régulièrement des tournois et des séances d'entraînement pour tous les niveaux, offrant ainsi à chacun l'opportunité de progresser et de partager cette passion. Rejoignez-nous pour découvrir un sport dynamique, technique, et plein de convivialité.</p>
-                        </div>
+                        <p class="card-text"><strong>Description : </strong> <br>{{user.userAssoDescr}}</p>
                     </div>
                 </div>
-                <div class="container-fluid" style="margin-bottom: 10px">
-                    <div class="card">
-                        <div class="card-header">
-                            <h5 class="card-title">{{ user.userAssoName }}</h5>
-                        </div>
-                        <div class="card-body">
-                         <img src="/images/sportifsDim.jfif" class="img-fluid me-3" style="width: 150px; height: auto;" alt="Image">
-                            <p>Le cyclisme urbain constitue la branche du cyclisme dévolue au transport urbain. Il s'agit de tout ce qui est relatif aux déplacements à vélo sur de petites et moyennes distances (quelques kilomètres) en milieu quasi exclusivement urbain (dans la ville et sa proche banlieue), c'est-à-dire en partageant la voirie avec les autres modes de déplacement motorisés ou non.</p>
-                        </div>
-                    </div>
-                </div>
-            {% else %}
-                <div class="col-12">
-                    <p class="text-center">Aucune association trouvée.</p>
-                </div>
-            {% endfor %}
-        </div>
-    </div>
-
+            </div>
+        {% else %}
+            <div class="col-12">
+                <p class="text-center">Aucune association trouvée.</p>
+            </div>
+        {% endfor %}
     {% include "footer/footer.html.twig" %}
 {% endblock %}
