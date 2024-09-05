@@ -55,12 +55,28 @@
                 {{ form_widget(registrationForm.userAssoDescr, {'attr': {'class': 'form-control w-50'}}) }}
             </div>
                         <div class="mb-3 d-flex justify-content-between">
-                {{ form_label(registrationForm.tresorier, 'Trésorier', {'label_attr': {'class': 'form-label fw-bold fs-4 ms-5'}}) }}
-                {{ form_widget(registrationForm.tresorier, {'attr': {'class': 'form-control w-50'}}) }}
+                {{ form_label(registrationForm.userTresorier, 'Trésorier', {'label_attr': {'class': 'form-label fw-bold fs-4 ms-5'}}) }}
+                {{ form_widget(registrationForm.userTresorier, {'attr': {'class': 'form-control w-50'}}) }}
             </div>
                         <div class="mb-3 d-flex justify-content-between">
-                {{ form_label(registrationForm.president, 'Président', {'label_attr': {'class': 'form-label fw-bold fs-4 ms-5'}}) }}
-                {{ form_widget(registrationForm.president, {'attr': {'class': 'form-control w-50'}}) }}
+                {{ form_label(registrationForm.userPresident, 'Président', {'label_attr': {'class': 'form-label fw-bold fs-4 ms-5'}}) }}
+                {{ form_widget(registrationForm.userPresident, {'attr': {'class': 'form-control w-50'}}) }}
+            </div>
+                        <div class="mb-3 d-flex justify-content-between">
+                {{ form_label(registrationForm.userSiteInternet, 'Site Internet', {'label_attr': {'class': 'form-label fw-bold fs-4 ms-5'}}) }}
+                {{ form_widget(registrationForm.userSiteInternet, {'attr': {'class': 'form-control w-50'}}) }}
+            </div>
+            <div class="mb-3 d-flex justify-content-between">
+                {{ form_label(registrationForm.userLienX, 'Lien X', {'label_attr': {'class': 'form-label fw-bold fs-4 ms-5'}}) }}
+                {{ form_widget(registrationForm.userLienX, {'attr': {'class': 'form-control w-50'}}) }}
+            </div>
+                        <div class="mb-3 d-flex justify-content-between">
+                {{ form_label(registrationForm.userLienFb, 'Lien Facebook', {'label_attr': {'class': 'form-label fw-bold fs-4 ms-5'}}) }}
+                {{ form_widget(registrationForm.userLienFb, {'attr': {'class': 'form-control w-50'}}) }}
+            </div>
+                        <div class="mb-3 d-flex justify-content-between">
+                {{ form_label(registrationForm.userLienInsta, 'Lien Instagram', {'label_attr': {'class': 'form-label fw-bold fs-4 ms-5'}}) }}
+                {{ form_widget(registrationForm.userLienInsta, {'attr': {'class': 'form-control w-50'}}) }}
             </div>
             <div class="mb-3 d-flex justify-content-between">
                 {{ form_row(registrationForm.imageFile)}}

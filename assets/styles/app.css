@@ -24,3 +24,12 @@ body{
     background-color: #0D3E3E !important;
     color: #fff;
 }
+
+a{
+    text-decoration: none;
+    color: #1C2828;
+}
+.modal-backdrop {
+    background-color: rgba(0, 0, 0, 0.8);
+  }  
+    
