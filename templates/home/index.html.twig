@@ -10,58 +10,66 @@
         <div>
             <h1>{{ welcomeMessage }}</h1>
             <p>Bienvenue sur notre plateforme des associations sportives de la ville d'Arras. Inscrivez-vous pour participer aux journées de  compétition.</p>
+            <img src="/images/AssoArrasiens.jfif" title="Divers sports" style="margin-top: 5px;">
+            <img src="/images/rugby.jfif" title= "Rugby" style="margin-top: 5px;">
+            <img src="/images/football.jfif" title= "Foot-ball" style="margin-top: 5px;">
+            <img src="/images/basket-ball.jfif" title= "Basket-ball" style="margin-top: 5px;">
         </div>
         <section class="mb-5">
             <h2>Qui sommes-nous ?</h2>
             <p class="text-muted">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ac iaculis diam, a pulvinar dolor. Cras faucibus consectetur mauris nec elementum. Aenean ut cursus elit, quis fringilla lectus. Nam mi lorem, consectetur a sem id, maximus pellentesque erat. Etiam tellus tellus, mollis et magna in, aliquet pretium leo. Nullam vel urna rhoncus, ullamcorper quam quis, faucibus dui. Integer ac elit nulla. Aenean eleifend condimentum est, ut semper ipsum rutrum eu. Ut nec convallis sem, quis tristique ligula.
+                ArasPlay est né de la volonté d’Arras de dynamiser le sport local à l’occasion des Jeux Olympiques en créant des olympiades dédiées aux associations sportives de la région. Notre plateforme recense l’ensemble des associations participantes, les disciplines qu’elles proposent, ainsi que les jours dédiés à chaque sport. Nous facilitons l’inscription des associations via un formulaire en ligne pour leur permettre de rejoindre cet événement unique. Au-delà de l’organisation des olympiades, nous restons à l’écoute de nos utilisateurs et des besoins de nos partenaires pour améliorer constamment le projet et l’adapter à leurs attentes.
             </p>
-            <p class="text-muted">
-                Maecenas scelerisque id nisl non lobortis. Nam ac auctor libero. Etiam rhoncus massa id nulla volutpat ultricies. Donec vitae velit metus. Sed sed tempus est. Pellentesque tristique vehicula orci a laoreet. Nam semper quam justo, quis rhoncus odio vulputate nec. Curabitur suscipit urna ut libero mollis vestibulum. Donec tincidunt mauris non tortor egestas, vitae tempor magna tincidunt. Integer elit purus, tempor sit amet mi sed, finibus lacinia erat. Proin blandit enim sed ante eleifend convallis. Maecenas vitae porta urna, eget rhoncus orci. Proin vel lorem nisl.
-            </p>
+
         </section>
         <div id='calendar'></div>   
         <section>
-            <h3>Calendrier</h3>
-            <div class="row">
-                <div class="col-md-6">
-                    <ul class="list-group">
-                        <li class="list-group-item">
-                            <strong>1 septembre 2024</strong> - 10:00 - Foot avec l’asso Mbappe
-                        </li>
-                        <li class="list-group-item">
-                            <strong>1 septembre 2024</strong> - 10:00 - Foot avec l’asso Mbappe
-                        </li>
-                        <li class="list-group-item">
-                            <strong>1 septembre 2024</strong> - 10:00 - Foot avec l’asso Mbappe
-                        </li>
-                        <li class="list-group-item">
-                            <strong>1 septembre 2024</strong> - 10:00 - Foot avec l’asso Mbappe
-                        </li>
-                    </ul>
-                </div>
-                <div class="col-md-6">
-                    <ul class="list-group">
-                        <li class="list-group-item">
-                            <strong>1 septembre 2024</strong> - 10:00 - Foot avec l’asso Mbappe
-                        </li>
-                        <li class="list-group-item">
-                            <strong>1 septembre 2024</strong> - 10:00 - Foot avec l’asso Mbappe
-                        </li>
-                        <li class="list-group-item">
-                            <strong>1 septembre 2024</strong> - 10:00 - Foot avec l’asso Mbappe
-                        </li>
-                        <li class="list-group-item">
-                            <strong>1 septembre 2024</strong> - 10:00 - Foot avec l’asso Mbappe
-                        </li>
-                    </ul>
+            <div id='calendar'></div>
+            <!-- Start popup dialog box -->
+            <div class="modal fade" id="event_entry_modal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-md" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="modalLabel">Add New Event</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">×</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="img-container">
+                                <div class="row">
+                                    <div class="col-sm-12">  
+                                        <div class="form-group">
+                                        <label for="event_name">Event name</label>
+                                        <input type="text" name="event_name" id="event_name" class="form-control" placeholder="Enter your event name">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-6">  
+                                        <div class="form-group">
+                                        <label for="event_start_date">Event start</label>
+                                        <input type="date" name="event_start_date" id="event_start_date" class="form-control onlydatepicker" placeholder="Event start date">
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">  
+                                        <div class="form-group">
+                                        <label for="event_end_date">Event end</label>
+                                        <input type="date" name="event_end_date" id="event_end_date" class="form-control" placeholder="Event end date">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-primary" onclick="save_event()">Save Event</button>
+                        </div>
+                    </div>
                 </div>
             </div>
-             <img src="/images/AssoArrasiens.jfif" title="Divers sports" style="margin-top: 5px;">
-              <img src="/images/rugby.jfif" title= "Rugby" style="margin-top: 5px;">
-              <img src="/images/football.jfif" title= "Foot-ball" style="margin-top: 5px;">
-               <img src="/images/basket-ball.jfif" title= "Basket-ball" style="margin-top: 5px;">
+            <!-- End popup dialog box -->
         </section>
     </main>
     {% include "footer/footer.html.twig" %}
+    <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.15/index.global.min.js'></script>
 {% endblock %}
