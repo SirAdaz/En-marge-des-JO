@@ -6,88 +6,109 @@
 
     {{ form_errors(registrationForm) }}
 
-    {{ form_start(registrationForm, {'attr': {'class': 'd-flex flex-column justify-content-center align-items-center flex-grow-1'}}) }}
+    {{ form_start(registrationForm, {'attr': {'class': 'd-flex flex-column justify-content-center align-items-center flex-grow-1 signupForm'}}) }}
         <div class="w-50 d-flex flex-column">
             <h1 class="fw-bold text-center py-4">ArrasPlay</h1>
             <h2 class="fw-bold fs-2 mb-5">Responsable :</h2>
 
-            <div class="mb-3 d-flex justify-content-between">
+            <div class="mb-3 d-flex justify-content-between form-group error success">
                 {{ form_label(registrationForm.email, 'Email', {'label_attr': {'class': 'form-label fw-bold fs-4 ms-5'}}) }}
                 {{ form_widget(registrationForm.email, {'attr': {'class': 'form-control w-50'}}) }}
             </div>
-            <div class="mb-3 d-flex justify-content-between">
+            <small></small>
+            <div class="mb-3 d-flex justify-content-between form-group error success">
                 {{ form_label(registrationForm.userName, 'First Name', {'label_attr': {'class': 'form-label fw-bold fs-4 ms-5'}}) }}
                 {{ form_widget(registrationForm.userName, {'attr': {'class': 'form-control w-50'}}) }}
             </div>
-            <div class="mb-3 d-flex justify-content-between">
+            <small></small>
+            <div class="mb-3 d-flex justify-content-between form-group error success">
                 {{ form_label(registrationForm.userLastname, 'Last Name', {'label_attr': {'class': 'form-label fw-bold fs-4 ms-5'}}) }}
                 {{ form_widget(registrationForm.userLastname, {'attr': {'class': 'form-control w-50'}}) }}
             </div>
-            <div class="mb-3 d-flex justify-content-between">
+            <small></small>
+            <div class="mb-3 d-flex justify-content-between form-group error success">
                 {{ form_label(registrationForm.userTel, 'Tel', {'label_attr': {'class': 'form-label fw-bold fs-4 ms-5'}}) }}
                 {{ form_widget(registrationForm.userTel, {'attr': {'class': 'form-control w-50'}}) }}
             </div>
-
-            <h2 class="fw-bold fs-2 mb-5">Asso :</h2>
-
-            <div class="mb-3 d-flex justify-content-between">
+            <small></small>
+            <div class="mb-3 d-flex justify-content-between form-group error success">
                 {{ form_label(registrationForm.userAdress, 'Address', {'label_attr': {'class': 'form-label fw-bold fs-4 ms-5'}}) }}
                 {{ form_widget(registrationForm.userAdress, {'attr': {'class': 'form-control w-50'}}) }}
             </div>
-            <div class="mb-3 d-flex justify-content-between">
+            <small></small>
+
+            <h2 class="fw-bold fs-2 mb-5">Asso :</h2>
+
+            <div class="mb-3 d-flex justify-content-between form-group error success">
                 {{ form_label(registrationForm.userAssoTel, 'Association Telephone', {'label_attr': {'class': 'form-label fw-bold fs-4 ms-5'}}) }}
                 {{ form_widget(registrationForm.userAssoTel, {'attr': {'class': 'form-control w-50'}}) }}
             </div>
-            <div class="mb-3 d-flex justify-content-between">
+            <small></small>
+            <div class="mb-3 d-flex justify-content-between form-group error success">
                 {{ form_label(registrationForm.userAssoName, 'Association Name', {'label_attr': {'class': 'form-label fw-bold fs-4 ms-5'}}) }}
                 {{ form_widget(registrationForm.userAssoName, {'attr': {'class': 'form-control w-50'}}) }}
             </div>
-            <div class="mb-3 d-flex justify-content-between">
+            <small></small>
+            <div class="mb-3 d-flex justify-content-between form-group error success">
                 {{ form_label(registrationForm.userAssoAdress, 'Association Address', {'label_attr': {'class': 'form-label fw-bold fs-4 ms-5'}}) }}
                 {{ form_widget(registrationForm.userAssoAdress, {'attr': {'class': 'form-control w-50'}}) }}
             </div>
-            <div class="mb-3 d-flex justify-content-between">
+            <small></small>
+            <div class="mb-3 d-flex justify-content-between form-group error success">
                 {{ form_label(registrationForm.userAssoSport, 'Association Sport', {'label_attr': {'class': 'form-label fw-bold fs-4 ms-5'}}) }}
                 {{ form_widget(registrationForm.userAssoSport, {'attr': {'class': 'form-control w-50'}}) }}
             </div>
-            <div class="mb-3 d-flex justify-content-between">
+            <small></small>
+            <div class="mb-3 d-flex justify-content-between form-group error success">
                 {{ form_label(registrationForm.userAssoDescr, 'Association Description', {'label_attr': {'class': 'form-label fw-bold fs-4 ms-5'}}) }}
                 {{ form_widget(registrationForm.userAssoDescr, {'attr': {'class': 'form-control w-50'}}) }}
             </div>
-                        <div class="mb-3 d-flex justify-content-between">
+            <div class="mb-3 d-flex justify-content-between form-group error success">
                 {{ form_label(registrationForm.userTresorier, 'Trésorier', {'label_attr': {'class': 'form-label fw-bold fs-4 ms-5'}}) }}
                 {{ form_widget(registrationForm.userTresorier, {'attr': {'class': 'form-control w-50'}}) }}
             </div>
-                        <div class="mb-3 d-flex justify-content-between">
+            <small></small>
+            <div class="mb-3 d-flex justify-content-between form-group error success">
                 {{ form_label(registrationForm.userPresident, 'Président', {'label_attr': {'class': 'form-label fw-bold fs-4 ms-5'}}) }}
                 {{ form_widget(registrationForm.userPresident, {'attr': {'class': 'form-control w-50'}}) }}
             </div>
-                        <div class="mb-3 d-flex justify-content-between">
+            <small></small>
+            <div class="mb-3 d-flex justify-content-between form-group error success">
                 {{ form_label(registrationForm.userSiteInternet, 'Site Internet', {'label_attr': {'class': 'form-label fw-bold fs-4 ms-5'}}) }}
                 {{ form_widget(registrationForm.userSiteInternet, {'attr': {'class': 'form-control w-50'}}) }}
             </div>
-            <div class="mb-3 d-flex justify-content-between">
+            <small></small>
+            <div class="mb-3 d-flex justify-content-between form-group error success">
                 {{ form_label(registrationForm.userLienX, 'Lien X', {'label_attr': {'class': 'form-label fw-bold fs-4 ms-5'}}) }}
                 {{ form_widget(registrationForm.userLienX, {'attr': {'class': 'form-control w-50'}}) }}
             </div>
-                        <div class="mb-3 d-flex justify-content-between">
+            <small></small>
+            <div class="mb-3 d-flex justify-content-between form-group error success">
                 {{ form_label(registrationForm.userLienFb, 'Lien Facebook', {'label_attr': {'class': 'form-label fw-bold fs-4 ms-5'}}) }}
                 {{ form_widget(registrationForm.userLienFb, {'attr': {'class': 'form-control w-50'}}) }}
             </div>
-                        <div class="mb-3 d-flex justify-content-between">
+            <small></small>
+            <div class="mb-3 d-flex justify-content-between form-group error success">
                 {{ form_label(registrationForm.userLienInsta, 'Lien Instagram', {'label_attr': {'class': 'form-label fw-bold fs-4 ms-5'}}) }}
                 {{ form_widget(registrationForm.userLienInsta, {'attr': {'class': 'form-control w-50'}}) }}
             </div>
-            <div class="mb-3 d-flex justify-content-between">
+            <small></small>
+            <div class="mb-3 d-flex justify-content-between form-group error success">
                 {{ form_label(registrationForm.imageFile, 'Logo', {'label_attr': {'class': 'form-label fw-bold fs-4 ms-5'}}) }}
                 {{ form_widget(registrationForm.imageFile, {'attr': {'class': 'form-control w-50'}}) }}
             </div>
-            <div class="mb-3 d-flex justify-content-between">
+            <small></small>
+            <div class="mb-3 d-flex justify-content-between form-group error success">
                 {{ form_label(registrationForm.plainPassword, 'Password', {'label_attr': {'class': 'form-label fw-bold fs-4 ms-5'}}) }}
                 {{ form_widget(registrationForm.plainPassword, {'attr': {'class': 'form-control w-50'}}) }}
             </div>
+            <small></small>
+            <div class="mb-3 d-flex justify-content-between form-group error success">
+                <label for="confirmPassword" class="form-label fw-bold fs-4 ms-5">Confirm Password</label>
+                <input type="password" id="confirmPassword" name="confirmPassword" autocomplete="off" class="form-control w-50">
+            </div>
+            <small></small>
         </div>
         <button type="submit" class="btn btn-lg btn-primary color-btn2 fw-semibold fs-5">Inscription</button>
-    {{ form_end(registrationForm) }}
-
+    {{ form_end(registrationForm) }}    
 {% endblock %}
