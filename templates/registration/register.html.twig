@@ -79,7 +79,8 @@
                 {{ form_widget(registrationForm.userLienInsta, {'attr': {'class': 'form-control w-50'}}) }}
             </div>
             <div class="mb-3 d-flex justify-content-between">
-                {{ form_row(registrationForm.imageFile)}}
+                {{ form_label(registrationForm.imageFile, 'Logo', {'label_attr': {'class': 'form-label fw-bold fs-4 ms-5'}}) }}
+                {{ form_widget(registrationForm.imageFile, {'attr': {'class': 'form-control w-50'}}) }}
             </div>
             <div class="mb-3 d-flex justify-content-between">
                 {{ form_label(registrationForm.plainPassword, 'Password', {'label_attr': {'class': 'form-label fw-bold fs-4 ms-5'}}) }}
