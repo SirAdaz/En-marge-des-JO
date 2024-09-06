@@ -3,14 +3,15 @@
 namespace App\Form;
 
 use App\Entity\User;
-use PhpParser\Node\Name;
 use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
-use Symfony\Component\Form\Extension\Core\Type\FileType;
-use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\Form\Extension\Core\Type\EmailType;
+use Symfony\Component\Form\Extension\Core\Type\PasswordType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
-use Symfony\Component\Validator\Constraints\IsTrue;
+use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Validator\Constraints\Length;
 use Symfony\Component\Validator\Constraints\NotBlank;
 
@@ -19,22 +20,14 @@ class RegistrationFormType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('email')
-            ->add('userName')
-            ->add('userLastname')
-            ->add('userTel')
-            ->add('userAdress')
-            ->add('userAssoTel')
-            ->add('userAssoName')
-            ->add('userAssoAdress')
-            ->add('userAssoSport')
-            ->add('userAssoDescr')
-            ->add('userTresorier')
-            ->add('userPresident')
-            ->add('userSiteInternet')
-            ->add('userLienX')
-            ->add('userLienFb')
-            ->add('userLienInsta')
+            ->add('email', EmailType::class, [
+                'constraints' => [
+                    new Assert\NotBlank(),
+                    new Assert\Email([
+                        'message' => 'The email {{ value }} is not a valid email.',
+                    ]),
+                ],
+            ])
             ->add('plainPassword', PasswordType::class, [
                 // instead of being set onto the object directly,
                 // this is read and encoded in the controller
@@ -50,22 +43,144 @@ class RegistrationFormType extends AbstractType
                         // max length allowed by Symfony for security reasons
                         'max' => 4096,
                     ]),
+                    new Assert\Regex([
+                        'pattern' => '/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})/',
+                        'message' => 'Password must be at least 8 characters long and include at least one uppercase letter, one lowercase letter, one number, and one special character.',
+                    ]),
                 ],
             ])
-            ->add('imageFile', FileType::class,[
-                'mapped' => false,
-                'required'=> false
+            ->add('userName', TextType::class, [
+                'constraints' => [
+                    new Assert\NotBlank(),
+                    new Assert\Length([
+                        'min' => 3,
+                        'max' => 25,
+                        'minMessage' => 'Le nom doit au moins {{ limit }} characters',
+                        'maxMessage' => 'Le nom doit au maxi {{ limit }} characters',
+                    ]),
+                ],
             ])
-        ;
+            ->add('userLastname', TextType::class, [
+                'constraints' => [
+                    new Assert\NotBlank(),
+                    new Assert\Length([
+                        'min' => 3,
+                        'max' => 25,
+                        'minMessage' => 'Le nom doit au moins {{ limit }} characters',
+                        'maxMessage' => 'Le nom doit au maxi {{ limit }} characters',
+                    ]),
+                ],
+            ])
+            ->add('userAssoName', TextType::class, [
+                'constraints' => [
+                    new Assert\NotBlank(),
+                    new Assert\Length([
+                        'min' => 3,
+                        'max' => 25,
+                        'minMessage' => 'Le nom doit au moins {{ limit }} characters',
+                        'maxMessage' => 'Le nom doit au maxi {{ limit }} characters',
+                    ]),
+                ],
+            ])
+            ->add('userTel', TextType::class, [
+                'constraints' => [
+                    new Assert\NotBlank(),
+                    new Assert\Regex([
+                        'pattern' => '/^(0|(\\+33)|(0033))[1-9][0-9]{8}/',
+                        'message' => 'The phone number is not valid.',
+                    ]),
+                ],
+            ])
+            ->add('userAssoTel', TextType::class, [
+                'constraints' => [
+                    new Assert\NotBlank(),
+                    new Assert\Regex([
+                        'pattern' => '/^(0|(\\+33)|(0033))[1-9][0-9]{8}/',
+                        'message' => 'The association phone number is not valid.',
+                    ]),
+                ],
+            ])
+            ->add('userAdress', TextType::class, [
+                'constraints' => [
+                    new Assert\NotBlank(),
+                ],
+            ])
+            ->add('userAssoAdress', TextType::class, [
+                'constraints' => [
+                    new Assert\NotBlank(),
+                ],
+            ])
+            ->add('userAssoSport', TextType::class, [
+                'constraints' => [
+                    new Assert\NotBlank(),
+                    new Assert\Length([
+                        'min' => 3,
+                        'max' => 25,
+                        'minMessage' => 'Le sport doit au moins {{ limit }} characters',
+                        'maxMessage' => 'Le sport doit au maxi {{ limit }} characters',
+                    ]),
+                ],
+            ])
+            ->add('userAssoDescr', TextType::class, [
+                'constraints' => [
+                    new Assert\NotBlank(),
+                ],
+            ])
+            ->add('userTresorier', TextType::class, [
+                'constraints' => [
+                    new Assert\NotBlank(),
+                    new Assert\Length([
+                        'min' => 3,
+                        'max' => 25,
+                        'minMessage' => 'Le nom doit au moins {{ limit }} characters',
+                        'maxMessage' => 'Le nom doit au maxi {{ limit }} characters',
+                    ]),
+                ],
+            ])
+            ->add('userPresident', TextType::class, [
+                'constraints' => [
+                    new Assert\NotBlank(),
+                    new Assert\Length([
+                        'min' => 3,
+                        'max' => 25,
+                        'minMessage' => 'Le nom doit au moins {{ limit }} characters',
+                        'maxMessage' => 'Le nom doit au maxi {{ limit }} characters',
+                    ]),
+                ],
+            ])
+            ->add('userSiteInternet', TextType::class, [
+                'required' => false,
+            ])
+            ->add('userLienX', TextType::class, [
+                'required' => false,
+            ])
+            ->add('userLienFb', TextType::class, [
+                'required' => false,
+            ])
+            ->add('userLienInsta', TextType::class, [
+                'required' => false,
+            ])
+            ->add('imageFile', FileType::class, [
+                'required' => false,
+                'mapped' => false,
+                'constraints' => [
+                    new Assert\File([
+                        'maxSize' => '2M',
+                        'mimeTypes' => [
+                            'image/jpeg',
+                            'image/png',
+                        ],
+                        'mimeTypesMessage' => 'Please upload a valid image (jpeg or png).',
+                    ]),
+                ],
+            ]);
     }
 
     public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults([
-            'csrf_protection' => true, // Activer la protection CSRF
-            'csrf_field_name' => '_csrf_token',
-            'csrf_token_id'   => 'authenticate', // ou un autre identifiant correspondant
             'data_class' => User::class,
+            'validation_groups' => ['Default'],
         ]);
     }
 }

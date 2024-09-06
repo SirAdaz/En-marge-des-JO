@@ -8,6 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: UserRepository::class)]
 #[ORM\UniqueConstraint(name: 'UNIQ_IDENTIFIER_EMAIL', fields: ['email'])]
@@ -21,6 +22,12 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
 
     #[ORM\Column(length: 255)]
+    #[Assert\NotBlank]
+    #[Assert\Type('string')]
+    #[Assert\Email(
+        message: 'The email {{ value }} is not a valid email.',
+    )]
+    #[Assert\Regex('/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zAZ]{2,}))$/')]
     private ?string $email = null;
 
     /**
@@ -33,33 +40,80 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      * @var string The hashed password
      */
     #[ORM\Column]
+    #[Assert\NotBlank]
+    #[Assert\Type('string')]
+    #[Assert\Regex('/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})/')]
     private ?string $password = null;
 
     #[ORM\Column(length: 255)]
+    #[Assert\NotBlank]
+    #[Assert\Type('string')]
+    #[Assert\Length(
+        min: 3,
+        max: 25,
+        minMessage: 'Le nom doit au moins {{ limit }} characters',
+        maxMessage: 'Le nom doit au maxi {{ limit }} characters',
+    )]
     private ?string $userName = null;
 
     #[ORM\Column(length: 255)]
+    #[Assert\NotBlank]
+    #[Assert\Type('string')]
+    #[Assert\Length(
+        min: 3,
+        max: 25,
+        minMessage: 'Le nom doit au moins {{ limit }} characters',
+        maxMessage: 'Le nom doit au maxi {{ limit }} characters',
+    )]
     private ?string $userLastname = null;
 
     #[ORM\Column(length: 255)]
+    #[Assert\NotBlank]
+    #[Assert\Type('string')]
+    #[Assert\Length(
+        min: 3,
+        max: 25,
+        minMessage: 'Le nom doit au moins {{ limit }} characters',
+        maxMessage: 'Le nom doit au maxi {{ limit }} characters',
+    )]
     private ?string $userAssoName = null;
 
     #[ORM\Column(length: 255)]
+    #[Assert\NotBlank]
+    #[Assert\Type('string')]
+    #[Assert\Regex('/^(0|(\\+33)|(0033))[1-9][0-9]{8}/')]
     private ?string $userTel = null;
 
     #[ORM\Column(length: 255)]
+    #[Assert\NotBlank]
+    #[Assert\Type('string')]
+    #[Assert\Regex('/^(0|(\\+33)|(0033))[1-9][0-9]{8}/')]
     private ?string $userAssoTel = null;
 
     #[ORM\Column(length: 255)]
+    #[Assert\NotBlank]
+    #[Assert\Type('string')]
     private ?string $userAdress = null;
 
     #[ORM\Column(length: 255)]
+    #[Assert\NotBlank]
+    #[Assert\Type('string')]
     private ?string $userAssoAdress = null;
 
     #[ORM\Column(length: 255)]
+    #[Assert\NotBlank]
+    #[Assert\Type('string')]
+    #[Assert\Length(
+        min: 3,
+        max: 25,
+        minMessage: 'Le sport doit au moins {{ limit }} characters',
+        maxMessage: 'Le sport doit au maxi {{ limit }} characters',
+    )]
     private ?string $userAssoSport = null;
 
     #[ORM\Column(length: 255)]
+    #[Assert\NotBlank]
+    #[Assert\Type('string')]
     private ?string $userAssoDescr = null;
     #[ORM\Column(type: Types::DATE_MUTABLE)]
     private ?\DateTimeInterface $userDateCreation = null;
@@ -68,21 +122,41 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     private ?string $imageFileName = null;
 
     #[ORM\Column(length: 255)]
+    #[Assert\NotBlank]
+    #[Assert\Type('string')]
+    #[Assert\Length(
+        min: 3,
+        max: 25,
+        minMessage: 'Le nom doit au moins {{ limit }} characters',
+        maxMessage: 'Le nom doit au maxi {{ limit }} characters',
+    )]
     private ?string $userTresorier = null;
 
     #[ORM\Column(length: 255)]
+    #[Assert\NotBlank]
+    #[Assert\Type('string')]
+    #[Assert\Length(
+        min: 3,
+        max: 25,
+        minMessage: 'Le nom doit au moins {{ limit }} characters',
+        maxMessage: 'Le nom doit au maxi {{ limit }} characters',
+    )]
     private ?string $userPresident = null;
 
     #[ORM\Column(length: 255, nullable: true)]
+    #[Assert\Type('string')]
     private ?string $userSiteInternet = null;
 
     #[ORM\Column(length: 255, nullable: true)]
+    #[Assert\Type('string')]
     private ?string $userLienX = null;
 
     #[ORM\Column(length: 255, nullable: true)]
+    #[Assert\Type('string')]
     private ?string $userLienFb = null;
 
     #[ORM\Column(length: 255, nullable: true)]
+    #[Assert\Type('string')]
     private ?string $userLienInsta = null;
     public function getId(): ?int
     {

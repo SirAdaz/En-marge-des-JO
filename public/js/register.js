@@ -13,6 +13,7 @@ const formUserpasswordEl = document.getElementById("registration_form_plainPassw
 const formUserconfirmPasswordEl = document.getElementById("confirmPassword");
 const form = document.getElementById("signupForm");
 
+
 // constante pour vérifier si le champ est vide ou non
 const isRequired = value => value === '' ? false : true;
 
@@ -259,30 +260,51 @@ const checkFormUserAssoPresident = () => {
     if (!isRequired(formUserAssoPresident)) {
         showError(formUserAssoPresidentEl, 'Le champ ne peut être vide');
     } else if (!isBetween(formUserAssoPresident.length, min, max)) {
-        showError(formUserAssoPresidentEl, `le nom doit être compris entre ${min} et ${max} caractères.`)
+        showError(formUserAssoPresidentEl, `Le nom doit être compris entre ${min} et ${max} caractères.`)
     } else {
         showSuccess(formUserAssoPresidentEl);
         valid = true;
     }
 }
 
-form.addEventListener('submit',function(e){ 
+form.addEventListener('submit', function(e){ 
     e.preventDefault();
+    
     let isformUserNameEl = checkFormUserName();
-    let isFormUserlastNameEl = checkUserlastName();
-    let isFormUseremailEl = checkUseremai();
-    let isFormUserTelEl = checkUserTel();
-    let isFormUserAdressEl = checkUserAdress();
+    let isFormUserlastNameEl = checkFormUserlastName();
+    let isFormUseremailEl = checkFormUseremail();
+    let isFormUserTelEl = checkFormUsertel();
+    let isFormUserAdressEl = checkFormUserAdress();
     let isFormUserAssoTelEl  = checkFormUserAssoTel();
     let isFormUserAssoNameEl = checkFormUserAssoName();
     let isFormUserAssoAdressEl = checkFormUserAssoAdress();
     let isFormUserAssoSportEl = checkFormUserAssoSport();
     let isFormUserAssoTresorierEl = checkFormUserAssoTresorier();
     let isFormUserAssoPresidentEl = checkFormUserAssoPresident();
-    let isFormUserpasswordEl= checkFormUserpasswordEl();
-    let isFormUserconfirmPasswordEl = checkFormUserconfirmPasswordEl();
-    let isFormValid = isformUserNameEl && isFormUserlastNameEl && isFormUseremailEl && isFormUserTelEl && isFormUserAdressEl && isFormUserAssoTelEl && isFormUserAssoNameEl && isFormUserAssoAdressEl && isFormUserAssoSportEl && isFormUserAssoTresorierEl && isFormUserAssoPresidentEl && isFormUserpasswordEl && isFormUserconfirmPasswordEl;
-    if (isFormValid==false) {
-        e.preventDefault();
+    let isFormUserpasswordEl= checkFormUserpassword();
+    let isFormUserconfirmPasswordEl = checkFormUserconfirmPassword();
+
+    let isFormValid = isformUserNameEl && 
+                      isFormUserlastNameEl && 
+                      isFormUseremailEl && 
+                      isFormUserTelEl && 
+                      isFormUserAdressEl && 
+                      isFormUserAssoTelEl && 
+                      isFormUserAssoNameEl && 
+                      isFormUserAssoAdressEl && 
+                      isFormUserAssoSportEl && 
+                      isFormUserAssoTresorierEl && 
+                      isFormUserAssoPresidentEl && 
+                      isFormUserpasswordEl && 
+                      isFormUserconfirmPasswordEl;
+                      
+    console.log(isFormValid);
+    if (!isFormValid) {
+        console.log("Le formulaire contient des erreurs et ne sera pas soumis.");
+    } else {
+        // Si toutes les validations passent, le formulaire peut être soumis
+        console.log("Le formulaire est valide et sera soumis.");
+        form.submit();
     }
 });
+
