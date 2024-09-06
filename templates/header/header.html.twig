@@ -7,8 +7,11 @@
             <a class="nav-link" href="{{ path('app_logout') }}">Déconnexion</a>
         {% else %}
             <!-- Afficher les boutons d'inscription/connexion pour les non-admin -->
+            <a class="nav-link" href="{{ path('app_asso') }}">Nos Assos</a>
+             <a class="nav-link" href="{{ path('app_contact') }}">Contact</a>
             <a class="nav-link" href="{{ path('app_login') }}">Connexion</a>
             <a class="nav-link" href="{{ path('app_register') }}">Inscription</a>
+            <a class="nav-link btn btn-primary" style="background: burlywood; padding: 5px; color: white;" href="{{ path('app_admin') }}">Admin</a>
         {% endif %}
     </div>
 </nav>

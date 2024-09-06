@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello ProfileController!{% endblock %}
+
+{% block body %}
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+</style>
+
+<div class="example-wrapper">
+    <h1>Hello cher Utilisateur 😃{{ user.username }}! ✅</h1>
+
+    Ce message amical vous ai adressé par: 
+    <h2 style="font-size: 20px; color: white;"> Votre plateforme de sport ArrasPlay</h2>
+    <!--ul>
+        <!--li>Your controller at <code>C:/Users/Stagiaire/Desktop/En-marge-des-JO/src/Controller/ProfileController.php</code></li-->
+        <!--li>Your template at <code>C:/Users/Stagiaire/Desktop/En-marge-des-JO/templates/profile/index.html.twig</code></li-->
+    </ul-->
+    <a class="nav-link" href="{{ path('app_logout') }}">Déconnexion</a>
+</div>
+{% endblock %}

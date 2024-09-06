@@ -27,7 +27,7 @@ security:
                 username_parameter: _username
                 password_parameter: _password
                 enable_csrf: true
-                default_target_path: app_admin
+                default_target_path: app_profile
             logout:
                 path: app_logout
                 target: home
@@ -39,4 +39,3 @@ security:
         - { path: ^/admin, roles: ROLE_ADMIN }
         - { path: ^/logout, roles: IS_AUTHENTICATED_FULLY }
         - { path: ^/profile, roles: ROLE_USER }
-
