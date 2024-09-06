@@ -52,4 +52,11 @@ a{
 .form-group small {
     color: var(--error-color);
 }
-    
+footer{
+    background-color: #ee7203;
+    text-align: center;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+}
