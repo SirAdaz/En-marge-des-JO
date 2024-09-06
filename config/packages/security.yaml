@@ -27,7 +27,7 @@ security:
                 username_parameter: _username
                 password_parameter: _password
                 enable_csrf: true
-                default_target_path: app_admin
+                default_target_path: home
             logout:
                 path: app_logout
                 target: home

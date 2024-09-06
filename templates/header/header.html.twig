@@ -18,12 +18,28 @@
                     </li>
                 </ul>
             </div>
-            <button class="btn btn-lg color-btn fw-semibold fs-5 nav-item me-4">
-                        <a class="nav-link" style="color: #fff;" href="{{ path('app_register') }}">Inscription</a>
+            {% if app.user %}
+                {% if is_granted('ROLE_ADMIN') %}
+                    <!-- Bouton pour l'admin -->
+                    <button class="btn btn-lg color-btn fw-semibold fs-5 nav-item me-4">
+                        <a class="nav-link" style="color: #fff;" href="{{ path('app_admin') }}">Admin</a>
                     </button>
-            <button class="btn btn-lg color-btn  fw-semibold fs-5 nav-item">
-                        <a class="nav-link" style="color: #fff;" href="{{ path('app_login') }}">Connexion</a>
-                    </button>
+                {% endif %}
+                <!-- Bouton de déconnexion visible pour tous les utilisateurs connectés -->
+                <button class="btn btn-lg color-btn fw-semibold fs-5 nav-item">
+                    <a class="nav-link" style="color: #fff;" href="{{ path('app_logout') }}">Déconnexion</a>
+                </button>
+            {% else %}
+                <!-- Boutons de connexion et d'inscription visibles pour les utilisateurs non connectés -->
+                <button class="btn btn-lg color-btn fw-semibold fs-5 nav-item me-4">
+                    <a class="nav-link" style="color: #fff;" href="{{ path('app_register') }}">Inscription</a>
+                </button>
+                <button class="btn btn-lg color-btn fw-semibold fs-5 nav-item">
+                    <a class="nav-link" style="color: #fff;" href="{{ path('app_login') }}">Connexion</a>
+                </button>
+            {% endif %}
+
+
         </div>
     </nav>
 </header>
