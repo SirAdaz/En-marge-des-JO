@@ -39,4 +39,3 @@ security:
         - { path: ^/admin, roles: ROLE_ADMIN }
         - { path: ^/logout, roles: IS_AUTHENTICATED_FULLY }
         - { path: ^/profile, roles: ROLE_USER }
-
