@@ -35,7 +35,13 @@ security:
                 secret: '%kernel.secret%'
                 lifetime: 604800 # 1 semaine
 
+            access_denied_url: /access-denied  # Redirection si accès refusé
+
     access_control:
         - { path: ^/admin, roles: ROLE_ADMIN }
         - { path: ^/logout, roles: IS_AUTHENTICATED_FULLY }
         - { path: ^/profile, roles: ROLE_USER }
+
+# Désactiver le contrôleur par défaut pour les exceptions Twig
+twig:
+    exception_controller: null

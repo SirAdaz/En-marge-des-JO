@@ -1,0 +1,15 @@
+{# templates/bundles/TwigBundle/Exception/error403.html.twig #}
+{% extends 'base.html.twig' %}
+
+{% block title %}Accès refusé{% endblock %}
+
+{% block body %}
+    <h1 style=" background: red; text-align: center; color: white;">Désolé, vous n'avez pas accès à cette page.</h1>
+    <p style="text-align: center; font-size: 25px;">Vous devez être un administrateur pour accéder à cet espace.</p>
+<div style="text-align: center;">
+    <img src="{{ asset('images/block-basket.jpg') }}" style="width: 35%" alt="" title="Tu as été stoppé !">
+    <br>
+    <a style="text-decoration: none;" href="{{ path('home') }}">Retour à la page d'Accueil !</a>
+</div>
+
+{% endblock %}
