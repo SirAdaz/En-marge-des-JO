@@ -45,6 +45,9 @@ class ContactController extends AbstractController
 
             $mailer->send($email);
 
+            // Ajouter un message flash après l'envoi de l'email
+            $this->addFlash('success', 'Votre demande de Contact a été envoyée avec succès !');
+
             // Redirect after form submission
             return $this->redirectToRoute('app_contact');
         }
