@@ -24,6 +24,9 @@ body{
     background-attachment: fixed;
     position: relative;
 }
+a{
+    text-decoration: none;
+}
 .color-btn {
     background-color: #087676 !important;
    }
@@ -35,7 +38,8 @@ body{
 
 a{
     text-decoration: none;
-    color: #1C2828;
+    color: inherit;
+    font-weight: normal;
 }
 .modal-backdrop {
     background-color: rgba(0, 0, 0, 0.8);

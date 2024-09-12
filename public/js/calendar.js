@@ -1,5 +1,5 @@
 // CALENDAR ACCUEIL
-window.onload = () => {
+window.addEventListener('load', () => {
     let calendarEl = document.getElementById("calendar");
 
     let calendar = new FullCalendar.Calendar(calendarEl, {
@@ -10,6 +10,13 @@ window.onload = () => {
             start: 'prev,next today',
             center: 'title',
             end: 'dayGridMonth,timeGridWeek,list'
+        },
+        buttonText: {  // Traduction des boutons
+            today: 'Aujourd\'hui',
+            month: 'Mois',
+            week: 'Semaine',
+            day: 'Jour',
+            list: 'Liste'
         },
         events: '/calendar/api/events',  // L'URL où tu récupères les événements depuis Symfony
         editable: true,  // Permet de rendre les événements déplaçables et modifiables
@@ -45,4 +52,4 @@ window.onload = () => {
         xhr.send(JSON.stringify(donnees));  // Envoi des données en JSON
     });
     calendar.render();  // Affichage du calendrier
-};
+});

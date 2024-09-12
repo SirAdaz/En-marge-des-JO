@@ -1,5 +1,5 @@
 // MODAL ASSO
-window.onload = function () {
+window.addEventListener('load', () => {
     let buttons = document.getElementsByClassName("modalon");
     for (let i = 0; i < buttons.length; i++) {
         let btn1 = buttons[i];
@@ -13,4 +13,4 @@ window.onload = function () {
             }
         });
     }
-};
+});
