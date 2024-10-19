@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<h1>Modifier l'association</h1>
+
+{{ form_start(form) }}
+    {{ form_row(form.nom) }}
+    {{ form_row(form.email) }}
+    {{ form_row(form.sport_pratique) }}
+    <button class="btn btn-success">Enregistrer</button>
+{{ form_end(form) }}
+
+{% if app.session.flashBag.has('success') %}
+    <div class="alert alert-success mt-3">
+        {{ app.session.flashBag.get('success')[0] }}
+    </div>
+{% endif %}
+{% endblock %}

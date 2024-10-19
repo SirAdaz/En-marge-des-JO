@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des Associations{% endblock %}
+
+{% block body %}
+    {% include 'header/header.html.twig' %}
+
+    <div class="container mt-4">
+        <h1>Liste des Associations</h1>
+
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nom</th>
+                    <th>Description</th>
+                    <th>Téléphone</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for association in associations %}
+                    <tr>
+                        <td>{{ association.id }}</td>
+                        <td>{{ association.user_asso_name }}</td>
+                        <td>{{ association.user_asso_descr }}</td>
+                        <td>{{ association.user_asso_tel }}</td>
+                        <td>
+                            <a href="{{ path('admin_edit_association', {id: association.id}) }}" class="btn btn-warning">Modifier</a>
+                            <a href="{{ path('admin_delete_association', {id: association.id}) }}" class="btn btn-danger">Supprimer</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    {% include 'footer/footer.html.twig' %}
+{% endblock %}
