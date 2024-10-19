@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<h1>Liste des Associations</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nom</th>
+            <th>Email</th>
+            <th>Sport Pratiqué</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for user in users %}
+        <tr>
+            <td>{{ user.id }}</td>
+            <td>{{ user.nom }}</td>
+            <td>{{ user.email }}</td>
+            <td>{{ user.sport_pratique }}</td>
+            <td>
+                <a href="{{ path('app_edit_association', {id: user.id}) }}" class="btn btn-primary">Modifier</a>
+                <a href="{{ path('app_delete_association', {id: user.id}) }}" class="btn btn-danger">Supprimer</a>
+                <a href="{{ path('app_delete_association', {id: user.id}) }}" 
+        class="btn btn-danger" 
+        onclick="return confirm('Êtes-vous sûr de vouloir supprimer cette association ?');">Supprimer</a>
+
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+{% endblock %}

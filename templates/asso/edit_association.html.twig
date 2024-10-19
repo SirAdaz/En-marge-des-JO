@@ -1,0 +1,18 @@
+{# templates/admin/edit_association.html.twig #}
+
+{% extends 'base.html.twig' %}
+
+{% block title %}Modifier une association{% endblock %}
+
+{% block body %}
+    <div class="container mt-4">
+        <h1>Modifier l'association {{ association.name }}</h1>
+
+        {{ form_start(form) }}
+            {{ form_widget(form) }}
+            <button class="btn btn-primary" type="submit">Enregistrer les modifications</button>
+        {{ form_end(form) }}
+
+        <a href="{{ path('admin_dashboard') }}" class="btn btn-secondary mt-3">Retour au tableau de bord</a>
+    </div>
+{% endblock %}
