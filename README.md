@@ -47,4 +47,4 @@ L’objectif est de créer une application complète permettant de gérer et vis
 ## Auteur
 
 - **SirAdaz** – [GitHub](https://github.com/SirAdaz)
-- **elyayus** – [GitHub]((https://github.com/elyayus))
+- **elyayus** – [GitHub](https://github.com/elyayus)
